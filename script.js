@@ -22,13 +22,60 @@ const questions = {
         "How do you handle stress?",
         "What motivates you the most?",
         "If you could give advice to your younger self, what would it be?"
+    ],
+    big_questions: [
+        "What’s a popular opinion that you completely disagree with?",
+        "How do you know if a piece of news is trustworthy?",
+        "What’s an example of something that people blindly follow?",
+        "Why do you think people believe conspiracy theories?",
+        "If you had to create a 'BS detector' for spotting fake news, what would you include?",
+        "If you could change one law, what would it be?",
+        "Why do people tend to believe things that confirm what they already think?",
+        "Is there such a thing as an absolute truth, or is everything subjective?",
+        "What’s an idea or belief you used to have but no longer do?",
+        "What’s a question you think more people should be asking?"
+    ],
+    life_skills: [
+        "What’s one practical skill you think all teens should learn?",
+        "How do you handle stress when things feel overwhelming?",
+        "What’s a financial tip you think young people should know?",
+        "What’s the best advice you’ve ever received?",
+        "If you could teach a class on any life skill, what would it be?",
+        "How do you decide what’s a want vs. a need?",
+        "What’s one thing about adulthood that seems confusing to you?",
+        "How do you make sure you're spending your time wisely?",
+        "What’s the best way to stay organized?",
+        "What’s a common money mistake people make that you want to avoid?"
     ]
 };
 
-// Save to Favorites
+// Populate "Surprise Me!" category with all questions
+questions.surprise = [
+    ...questions.fun,
+    ...questions.self_reflection,
+    ...questions.big_questions,
+    ...questions.life_skills
+];
+
+function showRandomQuestion() {
+    let category = document.getElementById("category").value;
+
+    // Ensure category exists in questions object
+    if (!questions[category]) {
+        document.getElementById("question").textContent = "Please select a valid category.";
+        return;
+    }
+
+    // Select a random question
+    let randomIndex = Math.floor(Math.random() * questions[category].length);
+    document.getElementById("question").textContent = questions[category][randomIndex];
+}
+
+// Save Favorite Question
 function saveFavoriteQuestion() {
     let currentQuestion = document.getElementById("question").textContent;
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
     if (!favorites.includes(currentQuestion)) {
         favorites.push(currentQuestion);
         localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -36,23 +83,17 @@ function saveFavoriteQuestion() {
     }
 }
 
-// View Favorites
+// View Favorite Questions
 function viewFavorites() {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     let list = document.getElementById("favorites-list");
+    
     list.innerHTML = favorites.length ? favorites.map(q => `<li>${q}</li>`).join('') : "<li>No favorites yet.</li>";
     document.getElementById("favorites-box").style.display = "block";
 }
 
-// Clear Favorites
+// Clear Favorite Questions
 function clearFavorites() {
     localStorage.removeItem("favorites");
     document.getElementById("favorites-list").innerHTML = "<li>No favorites yet.</li>";
-}
-
-// Show Random Question
-function showRandomQuestion() {
-    let category = document.getElementById("category").value;
-    let randomQuestion = questions[category][Math.floor(Math.random() * questions[category].length)];
-    document.getElementById("question").textContent = randomQuestion;
 }
