@@ -87,7 +87,7 @@ select:hover {
     font-weight: 700;
     cursor: pointer;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-top: 20px;
     transition: all 0.3s ease;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -105,20 +105,20 @@ select:hover {
     margin-top: 15px;
 }
 
-/* Save/View/Clear Buttons (Secondary) */
-.secondary-btn {
+/* Save/View/Clear Buttons (Smaller, Gray Background) */
+.action-btn {
     background-color: #ccc;
     color: black;
     border: none;
-    padding: 10px 16px;
-    font-size: 16px;
+    padding: 8px 14px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
 
-.secondary-btn:hover {
+.action-btn:hover {
     background-color: #bbb;
     transform: scale(1.05);
 }
