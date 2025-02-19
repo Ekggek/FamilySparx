@@ -11,7 +11,10 @@
     <div class="container">
         <h1>FamilySparx</h1>
         <p class="tagline">Sparking Conversations, One Question at a Time!</p>
-        
+
+        <!-- New Question Button (Larger and on top) -->
+        <button class="main-btn" onclick="showRandomQuestion()">🔄 New Question</button>
+
         <label for="category">Choose a category:</label>
         <select id="category">
             <option value="fun">Fun</option>
@@ -27,10 +30,12 @@
             <p id="question">Select a category and click the button!</p>
         </div>
 
-        <button onclick="showRandomQuestion()">New Question</button>
-        <button onclick="saveFavoriteQuestion()">⭐ Save to Favorites</button>
-        <button onclick="viewFavorites()">📜 View Favorites</button>
-        <button onclick="clearFavorites()">🗑 Clear Favorites</button>
+        <!-- Save/View/Clear Buttons (Smaller and below) -->
+        <div class="button-group">
+            <button class="secondary-btn" onclick="saveFavoriteQuestion()">⭐ Save</button>
+            <button class="secondary-btn" onclick="viewFavorites()">📜 View Favorites</button>
+            <button class="secondary-btn" onclick="clearFavorites()">🗑 Clear Favorites</button>
+        </div>
 
         <div id="favorites-box" style="display: none;">
             <h2>Saved Questions</h2>
