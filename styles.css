@@ -77,7 +77,7 @@ select:hover {
     line-height: 1.4;
 }
 
-/* New Question Button (Primary) */
+/* New Question Button */
 .main-btn {
     background-color: #007bff;
     color: white;
@@ -95,53 +95,4 @@ select:hover {
 .main-btn:hover {
     background-color: #0056b3;
     transform: scale(1.05);
-}
-
-/* Button Group for Save/View/Clear */
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-/* Save/View/Clear Buttons (Smaller, Gray Background) */
-.action-btn {
-    background-color: #ccc;
-    color: black;
-    border: none;
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.action-btn:hover {
-    background-color: #bbb;
-    transform: scale(1.05);
-}
-
-/* Favorites Section */
-#favorites-box {
-    background: #fff3cd;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-#favorites-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#favorites-list li {
-    font-size: 18px;
-    margin-bottom: 10px;
-    background: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
