@@ -65,7 +65,6 @@ const questions = {
         "If you had a theme song that played whenever you entered a room, what would it be?",
         "What’s a weird or funny thing you’ve seen online recently?",
         "If you could have dinner with any three fictional characters, who would you choose?",
-        "If you could invent a new holiday, what would it celebrate?",
         "If you could design your dream weekend, what would you do?",
         "What’s something you and your friends talk about a lot?",
         "What’s one thing in pop culture that you don’t get the hype about?",
