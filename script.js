@@ -46,4 +46,15 @@ const questions = {
         "How do you make sure you're spending your time wisely?",
         "What’s the best way to stay organized?",
         "What’s a common money mistake people make that you want to avoid?"
-    
+    ]
+};
+
+// Populate "Surprise Me!" category
+questions.surprise = [
+    ...questions.fun,
+    ...questions.self_reflection,
+    ...questions.big_questions,
+    ...questions.life_skills
+];
+
+function sho
