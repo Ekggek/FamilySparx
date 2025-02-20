@@ -46,15 +46,51 @@ const questions = {
         "How do you make sure you're spending your time wisely?",
         "What’s the best way to stay organized?",
         "What’s a common money mistake people make that you want to avoid?"
+    ],
+    daily_reflections: [
+        "What was the best part of your day today?",
+        "Did anything surprise you today?",
+        "What’s something you laughed about today?",
+        "What’s something you did today that you’re proud of?",
+        "If you could redo one part of your day, what would it be?",
+        "What’s something that’s been on your mind lately?",
+        "If you had to describe your mood as a weather forecast, what would it be?",
+        "What’s been stressing you out the most this week?",
+        "What’s one thing I can do to support you right now?",
+        "Do you feel like you’re balancing everything okay, or is anything feeling overwhelming?"
+    ],
+    creativity: [
+        "If you could swap lives with anyone for a day, who would it be and why?",
+        "If your life were a movie, what would the title be?",
+        "If you had a theme song that played whenever you entered a room, what would it be?",
+        "What’s a weird or funny thing you’ve seen online recently?",
+        "If you could have dinner with any three fictional characters, who would you choose?",
+        "If you could invent a new holiday, what would it celebrate?",
+        "If you could design your dream weekend, what would you do?",
+        "What’s something you and your friends talk about a lot?",
+        "What’s one thing in pop culture that you don’t get the hype about?",
+        "If you had to create a brand-new sport, what would it be like?"
     ]
 };
 
-// Populate "Surprise Me!" category
+// Populate "Surprise Me!" category with all questions combined
 questions.surprise = [
     ...questions.fun,
     ...questions.self_reflection,
     ...questions.big_questions,
-    ...questions.life_skills
+    ...questions.life_skills,
+    ...questions.daily_reflections,
+    ...questions.creativity
 ];
 
-function sho
+function showRandomQuestion() {
+    let category = document.getElementById("category").value;
+
+    if (!questions.hasOwnProperty(category)) {
+        document.getElementById("question").textContent = "Please select a valid category.";
+        return;
+    }
+
+    let randomIndex = Math.floor(Math.random() * questions[category].length);
+    document.getElementById("question").textContent = questions[category][randomIndex];
+}
