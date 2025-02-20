@@ -28,7 +28,7 @@ const questions = {
         "How do you know if a piece of news is trustworthy?",
         "What’s an example of something that people blindly follow?",
         "Why do you think people believe conspiracy theories?",
-        "If you had to create a 'BS detector' for spotting fake news, what would you include?",
+        "If you had to create a 'BS detector' for spotting fake news, what would it include?",
         "If you could change one law, what would it be?",
         "Why do people tend to believe things that confirm what they already think?",
         "Is there such a thing as an absolute truth, or is everything subjective?",
@@ -46,54 +46,4 @@ const questions = {
         "How do you make sure you're spending your time wisely?",
         "What’s the best way to stay organized?",
         "What’s a common money mistake people make that you want to avoid?"
-    ]
-};
-
-// Populate "Surprise Me!" category with all questions
-questions.surprise = [
-    ...questions.fun,
-    ...questions.self_reflection,
-    ...questions.big_questions,
-    ...questions.life_skills
-];
-
-function showRandomQuestion() {
-    let category = document.getElementById("category").value;
-
-    // Ensure category exists in questions object
-    if (!questions[category]) {
-        document.getElementById("question").textContent = "Please select a valid category.";
-        return;
-    }
-
-    // Select a random question
-    let randomIndex = Math.floor(Math.random() * questions[category].length);
-    document.getElementById("question").textContent = questions[category][randomIndex];
-}
-
-// Save Favorite Question
-function saveFavoriteQuestion() {
-    let currentQuestion = document.getElementById("question").textContent;
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    if (!favorites.includes(currentQuestion)) {
-        favorites.push(currentQuestion);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-        alert("Saved to favorites!");
-    }
-}
-
-// View Favorite Questions
-function viewFavorites() {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    let list = document.getElementById("favorites-list");
     
-    list.innerHTML = favorites.length ? favorites.map(q => `<li>${q}</li>`).join('') : "<li>No favorites yet.</li>";
-    document.getElementById("favorites-box").style.display = "block";
-}
-
-// Clear Favorite Questions
-function clearFavorites() {
-    localStorage.removeItem("favorites");
-    document.getElementById("favorites-list").innerHTML = "<li>No favorites yet.</li>";
-}
